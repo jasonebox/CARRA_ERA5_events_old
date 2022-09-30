@@ -50,7 +50,7 @@ for choice_index,choice in enumerate(choices):
     Gt=[]
     
     for choice in choices:
-        year='2022' ; month='6' ; day='14'
+        year='2022' ; month='6' ; day='17'
         
         day_before=str(int(day)-1).zfill(2)
         day_three=str(int(day)+1).zfill(2)
@@ -66,7 +66,7 @@ for choice_index,choice in enumerate(choices):
         opath='/Users/jason/Dropbox/CARRA/CARRA_ERA5_events/data_raw/ERA5/'+choice+'/'
         os.system('mkdir -p '+opath)
         
-        ofile=opath+'/'+str(year)+str(month).zfill(2)+'_3hourly_'+choice+'.grib'
+        ofile=opath+'/'+str(year)+str(month).zfill(2)+str(day).zfill(2)+'_3hourly_'+choice+'.grib'
     
         c = cdsapi.Client()
     
