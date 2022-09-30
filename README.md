@@ -10,6 +10,8 @@ aim to reproject and resample the ERA5 data to the CARRA grid and perhaps plot a
 The codebase could be later re-applied to say the 23-26 September, 2022 Fiona rain event which had the strongest/latest melting for Greenland on record; 
 ?that content could be useful in the Copernicus EU state of the climate report.
 
-? data access via Kristian P Nielsen DMI
+? data access via Kristian P Nielsen (KPN) @ DMI
 
 regridding using geomatch via Adrian Wehrlé
+
+** demonstrating CARRA skill with and without Greenland AWS data is a committed publicatoni topic via an ESA PRODEX contract that is supporting the software development for assimilating ESA SICE albedo; partners are GEUS and DMI KPN
