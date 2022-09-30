@@ -8,3 +8,7 @@ ambition to compare CARRA and ERA5 for an interesting climate event over Greenla
 im to reproject and resample the ERA5 data to the CARRA grid and perhaps plot a difference animation, alongside the CARRA result. The complex terrain aspect with rain/snow would drive home the value of CARRA in a climate-change-extreme context. 
 
 The codebase would be later re-applied to say the 23-26 September, 2022 Fiona rain event which had the strongest/latest melting for Greenland on record; that content I'd hope would be welcome in the Copernicus EU state of the climate report.
+
+? data access via Kristian P Nielsen DMI
+
+regridding using geomatch via Adrian Wehrlé
