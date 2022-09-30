@@ -5,7 +5,7 @@ Created on Fri Mar 13 08:08:56 2020
 
 @author: Jason Box, GEUS, jeb@geus.dk
 
-ERA5 geopotential height anomalies 
+ERA5 vis for a pressure level with temperature 
 
 """
 # import netCDF4
@@ -37,8 +37,7 @@ plt.rcParams['axes.facecolor'] = 'w'
 plt.rcParams['axes.edgecolor'] = 'k'
 plt.rcParams["font.size"] = font_size
 
-fn='/Users/jason/0_dat/ERA5/events/tcwv/2022061319_3hourly_tcwv.grib'
-fn='/Users/jason/0_dat/ERA5/events/z/2022061319_3hourly_z.grib'
+fn='/Users/jason/Dropbox/CARRA/CARRA_ERA5_events/data_raw/ERA5/tzuv/202206_3hourly_tzuv.grib'
 ds = cfgrib.open_dataset(fn)
 # nc = xr.open_dataset(fn,engine='cfgrib')
 lat = ds.variables['latitude'][:]
@@ -64,8 +63,8 @@ for time in times:
     # print(x.strftime("%Y-%m-%dT%H:%M"))
 print(date_strings)
 
-#%%
 dtime=pd.to_datetime(date_strings,format="%Y-%m-%dT%H")
+print(print)
 
 #%%
 lons,lats= np.meshgrid(lon,lat) # for this dataset, longitude is 0 through 360, so you need to subtract 180 to properly display on map
@@ -167,6 +166,7 @@ for i in range(len(date_strings)):
                 
         if ly == 'p':
             figpath='/Users/jason/0_dat/ERA5/events/Figs/'
+            figpath='/Users/jason/Dropbox/CARRA/CARRA_ERA5_events/Figs/ERA5/'
             os.system('mkdir -p '+figpath)
             plt.savefig(figpath+date_strings[i]+'.png', bbox_inches='tight', pad_inches=0.04, dpi=DPI, facecolor='w', edgecolor='k')
             # plt.savefig(figpath+select_period+'JJA_'+hgt+'z_anom.eps', bbox_inches='tight')
