@@ -14,8 +14,9 @@ if os.getlogin() == 'jason':
 
 os.chdir(base_path)
 
-choices=['tcwv','z']
+choices=['tcwv']
 choices=['tzuv']
+# choices=['tcwv']
 
 choice_index=0
 choice=choices[choice_index]
@@ -49,7 +50,7 @@ for choice_index,choice in enumerate(choices):
     Gt=[]
     
     for choice in choices:
-        year='2022' ; month='6' ; day='14'
+        year='2022' ; month='6' ; day='14x'
         
         day_before=str(int(day)-1).zfill(2)
         day_three=str(int(day)+1).zfill(2)

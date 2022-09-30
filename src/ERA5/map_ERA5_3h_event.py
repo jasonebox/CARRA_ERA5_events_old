@@ -29,7 +29,6 @@ from PIL import Image
 # os.chdir(base_path)
 
 nj=1440 ; ni=721
-    
 
 th=1
 font_size=9
@@ -38,6 +37,7 @@ plt.rcParams['axes.edgecolor'] = 'k'
 plt.rcParams["font.size"] = font_size
 
 fn='/Users/jason/Dropbox/CARRA/CARRA_ERA5_events/data_raw/ERA5/tzuv/202206_3hourly_tzuv.grib'
+fn='/Users/jason/0_dat/ERA5/events/tzuv/2022061319_3hourly_tzuv.grib'
 ds = cfgrib.open_dataset(fn)
 # nc = xr.open_dataset(fn,engine='cfgrib')
 lat = ds.variables['latitude'][:]
@@ -165,8 +165,8 @@ for i in range(len(date_strings)):
         ly='p'
                 
         if ly == 'p':
-            figpath='/Users/jason/0_dat/ERA5/events/Figs/'
-            figpath='/Users/jason/Dropbox/CARRA/CARRA_ERA5_events/Figs/ERA5/'
+            figpath='/Users/jason/0_dat/ERA5/events/Figs/tzuv/'
+            # figpath='/Users/jason/Dropbox/CARRA/CARRA_ERA5_events/Figs/ERA5/'
             os.system('mkdir -p '+figpath)
             plt.savefig(figpath+date_strings[i]+'.png', bbox_inches='tight', pad_inches=0.04, dpi=DPI, facecolor='w', edgecolor='k')
             # plt.savefig(figpath+select_period+'JJA_'+hgt+'z_anom.eps', bbox_inches='tight')
