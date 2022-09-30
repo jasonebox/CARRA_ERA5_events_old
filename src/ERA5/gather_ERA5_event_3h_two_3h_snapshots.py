@@ -16,7 +16,7 @@ os.chdir(base_path)
 
 choices=['tcwv','z']
 choices=['tzuv']
-choices=['tcwv']
+# choices=['tcwv']
 
 choice_index=0
 choice=choices[choice_index]
@@ -63,7 +63,7 @@ for choice_index,choice in enumerate(choices):
         print(choice,year,month,day_before,day,last_day)
         
         opath='/Users/jason/0_dat/ERA5/events/'+choice+'/'
-        opath='/Users/jason/Dropbox/AWS/GEUS_AWS_analysis/data_raw/ERA5/'+choice+'/'
+        opath='/Users/jason/Dropbox/CARRA/CARRA_ERA5_events/data_raw/ERA5/'+choice+'/'
         os.system('mkdir -p '+opath)
         
         ofile=opath+'/'+str(year)+str(month).zfill(2)+'_3hourly_'+choice+'.grib'
@@ -75,21 +75,14 @@ for choice_index,choice in enumerate(choices):
                 'reanalysis-era5-single-levels',
                 {
                     'product_type': 'reanalysis',
-                    'variable': 'total_column_water_vapour',
-                    'year': str(year),
-                    'month': str(month).zfill(2),
-                    'day': [
-                        str(day_before).zfill(2),str(day).zfill(2),str(day_three).zfill(2),\
-                            str(day_four).zfill(2),str(day_five).zfill(2),\
-                            str(day_six).zfill(2)],
-                            # ,str(day_seven).zfill(2),\
-                            # str(day_eight).zfill(2),str(day_nine).zfill(2),\
-                            #     str(last_day).zfill(2),
-                                # ],
-                    'time': [
-                        '00:00', '03:00',
-                    ],
                     'format': 'grib',
+                    'variable': 'total_column_water_vapour',
+                    'year': '2022',
+                    'month': '06',
+                    'day': '17',
+                    'time': [
+                        '09:00', '12:00',
+                    ],
                 },
                 ofile)
 
@@ -98,24 +91,16 @@ for choice_index,choice in enumerate(choices):
                 'reanalysis-era5-pressure-levels',
                 {
                     'product_type': 'reanalysis',
-                    'variable': [
-                        'temperature','geopotential', 'u_component_of_wind', 'v_component_of_wind',
-                    ],        'pressure_level': '850',
-                    'year': str(year),
-                    'month': str(month).zfill(2),
-                    'day': [
-                        str(day_before).zfill(2),str(day).zfill(2),str(day_three).zfill(2),\
-                            str(day_four).zfill(2),str(day_five).zfill(2),\
-                            str(day_six).zfill(2)],
-                            # ,str(day_seven).zfill(2),\
-                            # str(day_eight).zfill(2),str(day_nine).zfill(2),\
-                            #     str(last_day).zfill(2),
-                                # ],
-                    'time': [
-                        '00:00', '03:00', '06:00',
-                        '09:00', '12:00', '15:00',
-                        '18:00', '21:00',
-                    ],
                     'format': 'grib',
+                    'variable': [
+                        'temperature', 'u_component_of_wind', 'v_component_of_wind',
+                    ],
+                    'pressure_level': '850',
+                    'year': '2022',
+                    'month': '06',
+                    'day': '17',
+                    'time': [
+                        '09:00', '12:00',
+                    ],
                 },
                 ofile)
