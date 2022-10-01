@@ -50,6 +50,17 @@ era5_grid = np.dstack([era5_ex, era5_lons, era5_lats])
 
 # %% read CARRA grid
 
+ni = 1269
+nj = 1069
+fn = "/home/adrien/EO-IO/CARRA_rain/ancil/2.5km_CARRA_west_lat_1269x1069.npy"
+lat = np.fromfile(fn, dtype=np.float32)
+lat = lat.reshape(ni, nj)
+
+fn = "./ancil/2.5km_CARRA_west_lon_1269x1069.npy"
+lon = np.fromfile(fn, dtype=np.float32)
+lon = lon.reshape(ni, nj)
+
+
 fn = "/home/adrien/EO-IO/CARRA_rain/ancil/CARRA_W_elev_lat_lon.nc"
 
 carra_ds = xr.open_dataset(fn)
@@ -60,6 +71,10 @@ carra_lat = np.array(carra_ds["latitude"])[::-1]
 carra_lon_raw = np.array(carra_ds["longitude"])[::-1]
 # carra_lon = lon360_to_lon180(carra_lon_raw)
 # carra_lon = carra_lon_raw
+
+carra_lon_raw2 = np.fromfile(
+    "/home/adrien/EO-IO/CARRA_ERA5_events/meta/CARRA/2.5km_CARRA_west_lon_1269x1069.npy"
+)
 
 carra_grid = np.dstack([carra_elev, carra_lon, carra_lat])
 
