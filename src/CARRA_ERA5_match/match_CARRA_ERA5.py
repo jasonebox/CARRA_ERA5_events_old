@@ -28,7 +28,7 @@ selected_grb = grbs.select(name="Total column water vapour")[0]
 
 era5_ex, era5_lats, era5_lons = selected_grb.data()
 
-era_grid = np.dstack([era5_ex, era5_lats, era5_lons])
+era5_grid = np.dstack([era5_ex, era5_lats, era5_lons])
 
 # %% read CARRA grid
 
@@ -42,6 +42,6 @@ carra_lon = np.array(carra_ds["longitude"])
 
 carra_grid = np.dstack([carra_elev, carra_lat, carra_lon])
 
-# %%
+# %% geomatch
 
 m2m_results = gm.match_m2m(era5_grid, carra_grid)
